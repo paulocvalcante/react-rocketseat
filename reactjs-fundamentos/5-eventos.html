@@ -7,14 +7,43 @@
   </head>
   <body>
     <div id="root">
-      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
       <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
       <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
       <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </div>
+
     <script type="text/babel">
+      function Alert1() {
+        function handleAlert1() {
+          alert('ALERTA');
+        }
+
+        return <button onClick={handleAlert1}>Mostar Alerta</button>;
+      }
+
+      function Alert2() {
+        function handleAlert2(msg) {
+          alert(msg);
+        }
+
+        return (
+          <button
+            onClick={() => {
+              handleAlert2('MENSAGEM');
+            }}
+          >
+            Mostrar Alerta
+          </button>
+        );
+      }
+
       function App() {
-        return <main className='p-3'>...</main>;
+        return (
+          <main className='p-3'>
+            <Alert1 />
+            <Alert2 />
+          </main>
+        );
       }
 
       ReactDOM.createRoot(document.getElementById('root')).render(<App />);
