@@ -169,8 +169,9 @@
           }
 
           if (input === 'CE') {
-            setOperation('');
-            setResult(result.slice(0, -1));
+            result
+              ? setResult(result.slice(0, -1))
+              : setOperation(operation.slice(0, -1));
 
             return;
           }
